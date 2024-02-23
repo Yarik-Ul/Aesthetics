@@ -1,0 +1,115 @@
+main {
+  .container_catalog {
+    max-width: 828px;
+    margin: 0 auto;
+    .sort {
+      margin-bottom: 26px;
+      select {
+        width: 180px;
+        height: 24px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+          option {
+            background-color: #4B6049;
+            color: #fff;
+  
+          }
+        
+        
+      }
+    }
+    .catalog {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 20px;
+      margin: 0 auto 100px auto;
+      .item_card {
+        width: 260px;
+        padding: 13px;
+        font-size: 20px;
+        line-height: 150%;
+
+        .item_img {
+          width: 234px;
+          margin-bottom: 12px;
+
+          img {
+            width: 100%;
+          }
+        }
+        h3 {
+          text-align: left;
+        }
+        .item_price {
+          text-align: right;
+          margin-bottom: 12px;
+        }
+        .item_btns {
+          display: flex;
+          justify-content: space-between;
+          .detail {
+            display: block;
+            font-size: 16px;
+            cursor: pointer;
+            &:hover {
+              color: #c5c5c5;
+            }
+          }
+          .in_basket_wrap {
+            position: relative;
+            width: 96px;
+            height: 26px;
+            border: 1px solid $green;
+            .in_basket {
+              position: absolute;
+              top: 3px;
+              right: 3px;
+              width: 100%;
+              height: 100%;
+              background-color: $green;
+              color: #fff;
+              border: none;
+              cursor: pointer;
+              transition: all 300ms ease;
+              &:hover {
+                top: 0;
+                right: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+    .show_more {
+        margin: 0 auto 100px auto;
+      position: relative;
+      display: block;
+      width: 200px;
+      height: 50px;
+      border: 1px solid $gray;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      &:hover::after {
+        transform: translateY(10px);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 30px;
+        background-image: url(../img/arrow_more.png);
+        top: 32px;
+        right: 100px;
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: all 300ms ease;
+      }
+    }
+  }
+}

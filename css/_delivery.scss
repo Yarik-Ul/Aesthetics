@@ -1,0 +1,33 @@
+main {
+  .container_delivery {
+    max-width: 892px;
+    margin: 70px auto;
+    .pay {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 70px;
+      .pay_title {
+        align-self: flex-end;
+        background-color: $green;
+        width: 480px;
+        height: 120px;
+
+        h4 {
+          padding: 44px 268px 44px 44px;
+          font-size: 26px;
+          line-height: 32px;
+          color: #fff;
+        }
+      }
+      .pay_text {
+        border: 1px solid $green;
+        padding: 30px;
+        p {
+          font-size: 20px;
+          line-height: 24px;
+          margin-bottom: 20px;
+        }
+      }
+    }
+  }
+}
