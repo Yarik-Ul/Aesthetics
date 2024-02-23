@@ -1,0 +1,125 @@
+footer {
+  .container {
+    display: flex;
+    flex-direction: column;
+    .first_side_footer {
+      width: 1074px;
+      display: flex;
+      justify-content: end;
+      margin: 8px auto;
+      a {
+        .social_icon {
+          display: block;
+          margin-right: 15px;
+          width: 50px;
+          height: 50px;
+          cursor: pointer;
+        }
+        @keyframes icon-anime {
+          0% {
+            transform: rotateZ(0deg) scale(1);
+            
+          }
+          25% {
+            transform: rotateZ(20deg) scale(1.05);
+          }
+          50% {
+            transform: rotateZ(0deg) scale(1);
+          }
+          75% {
+            transform: rotateZ(-20deg) scale(1.05);
+          }
+          100% {
+            transform: rotateZ(0deg) scale(1);
+          }
+        }
+        .insta {
+          background-image: url("../img/instagram.png");
+          &:hover {
+            animation: icon-anime 500ms infinite ease; 
+            
+          }
+        }
+        .email {
+          background-image: url("../img/email.png");
+          &:hover {
+            animation: icon-anime 500ms infinite ease; 
+          }
+        }
+        .tel {
+          background-image: url("../img/phone.png");
+           &:hover {
+            animation: icon-anime 500ms infinite ease; 
+            
+          }
+        }
+        .map {
+          background-image: url("../img/address.png");
+          &:hover {
+            animation: icon-anime 500ms infinite ease; 
+            
+          }
+        }
+      }
+    }
+    .second_side_footer {
+      width: 100%;
+      background-color: $green;
+      padding: 30px 0;
+
+      .second_side_wrapper {
+        width: 1074px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        color: #fffbf5;
+        font-size: 20px;
+        line-height: 150%;
+
+        .work_time {
+          p {
+            padding-bottom: 6px;
+          }
+        }
+        .tel_and_pay {
+          .telephone {
+            margin-bottom: 20px;
+            p {
+              padding-bottom: 6px;
+            }
+          }
+          .pay {
+            display: flex;
+            align-items: center;
+            .pay_card {
+              background-position: center;
+              background-repeat: no-repeat;
+              background-size: cover;
+              margin-left: 25px;
+              filter: grayscale(50%);
+            }
+
+            .mastercard {
+              display: block;
+              width: 52px;
+              height: 32px;
+              background-image: url("../img/mastercard.png");
+            }
+            .visa {
+              display: block;
+              width: 76px;
+              height: 26px;
+              background-image: url("../img/visa.png");
+            }
+            .applepay {
+              display: block;
+              width: 82px;
+              height: 34px;
+              background-image: url("../img/apay.png");
+            }
+          }
+        }
+      }
+    }
+  }
+}

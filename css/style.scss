@@ -1,0 +1,29 @@
+$fs: 26px;
+$ff: "Roboto", sans-serif;
+$gray: #484847;
+$green: #4b6049;
+$maxWidth: 1920px;
+$mediamax: 1919px;
+$media_xxxl: 1439px;
+$media_xxl: 1359px;
+$media_xl: 1279px;
+$media_l: 1023px;
+$media_m: 767px;
+$media_s: 479px;
+
+@import "reset";
+body {
+  font-family: $ff;
+  font-size: $fs;
+  color: $gray;
+  .container {
+    max-width: $maxWidth;
+    margin: 0 auto;
+  }
+}
+@import "header";
+@import "header-media";
+@import "main";
+@import "main-media";
+@import "footer";
+@import "footer-media";

@@ -1,0 +1,99 @@
+header {
+  .container {
+    max-width: 1070px;
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .navigate {
+      display: flex;
+      border-bottom: 1px solid $green;
+      ul {
+        display: flex;
+        li {
+          margin-right: 16px;
+
+          a {
+            font-family: $ff;
+            color: $gray;
+            font-size: 26px;
+            font-weight: 300;
+            &:hover {
+              color: gray;
+            }
+          }
+        }
+      }
+    }
+    .header_logo {
+      a {
+        .main_logo {
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+        .mini_logo {
+          width: 100%;
+          height: 100%;
+          display: none;
+        }
+      }
+    }
+    .basket_icon {
+      width: 36px;
+      height: 36px;
+      background-image: url("../img/iconbasket.png");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      cursor: pointer;
+      transition: all 300ms ease;
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+    .menu_burger {
+      position: absolute;
+      top: 40%;
+      right: 28px;
+      width: 50px;
+      height: 30px;
+      display: none;
+      cursor: pointer;
+      z-index: 10;
+
+      .burger_line {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $green;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.3s ease;
+        will-change: transform;
+        &:nth-of-type(2) {
+          top: 50%;
+        }
+        &:nth-of-type(3) {
+          top: 100%;
+        }
+      }
+      .opened {
+        &:nth-of-type(1) {
+          background-color: #fff;
+          transform: rotate(45deg) translateX(9px) translateY(9px);
+        }
+        &:nth-of-type(2) {
+          background-color: #fff;
+          transform: scaleX(0);
+        }
+        &:nth-of-type(3) {
+          background-color: #fff;
+          transform: rotate(-45deg) translateX(11px) translateY(-12px);
+        }
+      }
+    }
+  }
+}
