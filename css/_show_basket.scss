@@ -1,0 +1,129 @@
+header {
+  .container {
+    .show_basket {
+      max-width: 768px;
+      height: auto;
+      border: 1px solid $green;
+      background-color: #fff;
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 21;
+      padding: 10px;
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+      .to_order {
+        display: none;
+        form {
+          display: flex;
+          max-width: 368px;
+          flex-direction: column;
+          gap: 10px;
+          label {
+            font-size: 20px;
+            }
+            input {
+              width: 200px;
+              height: 30px;
+              font-size: 20px;
+          }
+          .send_order {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: #fff;
+            border: none;
+            width: 200px;
+            height: 50px;
+            background-color: $green;
+            cursor: pointer;
+          }
+        }
+      }
+      .to_order_active {
+        display: block;
+      }
+      .basket_title {
+        font-size: 26px;
+        line-height: 49px;
+      }
+      .basket_items {
+        max-height: 400px;
+        overflow-y: scroll;
+        .basket_item {
+          display: flex;
+          border: 1px solid $gray;
+
+          .basket_item_info {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .item_info {
+              display: flex;
+              justify-content: space-around;
+              h3 {
+                padding-right: 10px;
+              }
+              .delete {
+                display: block;
+                position: relative;
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 3px;
+                  background-color: $green;
+                  top: 50%;
+                  left: 0;
+                  transform: rotateZ(45deg);
+                }
+                &::before {
+                  content: "";
+                  position: absolute;
+                  width: 100%;
+                  height: 3px;
+                  background-color: $green;
+                  top: 50%;
+                  right: 0;
+                  transform: rotateZ(-45deg);
+                }
+              }
+              input {
+                width: 80px;
+                height: 40px;
+                font-size: 18px;
+                text-align: center;
+              }
+            }
+          }
+        }
+      }
+
+      .total {
+        align-self: flex-end;
+      }
+      .continue,
+      .buy {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        color: #fff;
+        border: none;
+        width: 200px;
+        height: 50px;
+        background-color: $green;
+        cursor: pointer;
+      }
+    }
+    .show_basket_active {
+      display: flex;
+    }
+  }
+}

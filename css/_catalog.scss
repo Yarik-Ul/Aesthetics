@@ -10,13 +10,10 @@ main {
         font-size: 20px;
         border: none;
         cursor: pointer;
-          option {
-            background-color: #4B6049;
-            color: #fff;
-  
-          }
-        
-        
+        option {
+          background-color: #4b6049;
+          color: #fff;
+        }
       }
     }
     .catalog {
@@ -83,7 +80,7 @@ main {
       }
     }
     .show_more {
-        margin: 0 auto 100px auto;
+      margin: 0 auto 100px auto;
       position: relative;
       display: block;
       width: 200px;

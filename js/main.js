@@ -1,31 +1,30 @@
 // berger menu
-const header = document.querySelector(".menu_burger");
+const headerBurger = document.querySelector(".menu_burger");
 const menuBtns = document.querySelectorAll(".burger_line");
 const navMenu = document.querySelector(".navigate");
- header.onclick = () => {
-     menuBtns.forEach(btn => {
-         btn.classList.toggle("opened");
-     });
-     navMenu.classList.toggle("opened_nav");
+headerBurger.onclick = () => {
+  menuBtns.forEach((btn) => {
+    btn.classList.toggle("opened");
+  });
+  navMenu.classList.toggle("opened_nav");
+};
+// END berger menu
 
- };
- // END berger menu
 
- //Slider
- const sliderContainer = document.querySelector(".slider_wrap");
- const sliderlItems = document.querySelectorAll(".slider_item");
- const elWidth = sliderlItems[0].offsetWidth;
 
- function moveSlider() {
-   sliderContainer.classList.add("slider_animating");
-   sliderContainer.style.transform = `translateX(-${elWidth}px)`;
-
-   setTimeout(() => {
-     sliderContainer.classList.remove("slider_animating");
-     sliderContainer.append(sliderContainer.firstElementChild);
-     sliderContainer.style.transform = `translateX(0px)`;
-   }, 600);
- }
-
-setInterval(moveSlider, 2000);
- //END Slider
+//tabs for basket
+const showBasket = document.querySelector(".basket_icon");
+const basket = document.querySelector(".show_basket");
+const continueBuy = document.querySelector(".continue");
+const header = document.querySelector("header");
+const showOrder = document.querySelector(".to_order");
+const toOrder = document.querySelector(".buy");
+function showMyBasket(event) {
+  if (event.target === showBasket || event.target === continueBuy) {
+    basket.classList.toggle("show_basket_active");
+  } else if (event.target === toOrder) {
+    showOrder.classList.toggle("to_order_active");
+  }
+}
+header.addEventListener("click", showMyBasket);
+// END tabs for basket
