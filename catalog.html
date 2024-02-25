@@ -29,7 +29,7 @@
             <li><a href="#">Контакти</a></li>
           </ul>
         </nav>
-        <div class="basket_icon"></div>
+        <div class="basket_icon"><span class="product_in_busket">0</span></div>
         <div class="menu_burger">
           <span class="burger_line"></span>
           <span class="burger_line"></span>
@@ -37,7 +37,7 @@
         </div>
         <div class="show_basket">
           <p class="basket_title">Ваше замовлення</p>
-          <p>В кошику 8 товарів</p>
+          <p>В кошику <span class="quantity_of_products"></span> товарів</p>
           <div class="basket_items">
             <div class="basket_item">
               <div class="basket_items_img">
@@ -56,7 +56,7 @@
             </div>
           </div>
 
-          <p class="total">Загальна сумма: 2800 грн</p>
+          <p class="total">Загальна сумма: <span class="total_sum"></span> грн</p>
           <span class="continue">Продовжити покупки</span>
           <button class="buy">Оформити</button>
           <div class="to_order">
@@ -76,136 +76,150 @@
       </div>
     </header>
     <main>
-      <div class="container_catalog">
-        <div class="sort">
-          <select name="sorting" id="#">
-            <option disabled="disabled" selected="selected">Сортування</option>
-            <option value="popular">За популярністю</option>
-            <option value="price">За ціною</option>
-            <option value="alphabet">Від А до Я</option>
-          </select>
-        </div>
-        <div class="catalog">
-          <div class="item_card">
+      <div class="main_container_catalog" >
+      <div class="container_catalog active">
+        <ul class="catalog">
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_1.png" alt="#" />
             </div>
             <h3>Флюїд для обличчя для сухої шкіри</h3>
             <p class="item_price">630 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0001">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0001">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0001">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0001">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_2.png" alt="#" />
             </div>
             <h3>Антиоксидантний крем для обличчя</h3>
             <p class="item_price">850 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0002">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0002">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0002">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0002">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_3.png" alt="#" />
             </div>
             <h3>Гель для вмивання для проблемної шкіри</h3>
             <p class="item_price">590 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0003">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0003">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0003">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0003">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_4.png" alt="#" />
             </div>
             <h3>Зволожуюча сироватка для нормальної шкіри</h3>
             <p class="item_price">480 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0004">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0004">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0004">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0004">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_5.png" alt="#" />
             </div>
             <h3>Зволожуючий крем для сухої шкіри</h3>
             <p class="item_price">830 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0005">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0005">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0005">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0005">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_6.png" alt="#" />
             </div>
             <h3>Тонік для обличчя для нормальної шкіри</h3>
             <p class="item_price">450 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0006">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0006">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0006">Детальніше</span>
+              <div class="in_basket_wrap">
+                <button class="in_basket" data-index="0006">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_7.png" alt="#" />
             </div>
             <h3>Пінка для очищення шкіри обличчя</h3>
             <p class="item_price">560 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0007">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0007">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0007">Детальніше</span>
+              <div class="in_basket_wrap" >
+                <button class="in_basket" data-index="0007">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_8.png" alt="#" />
             </div>
             <h3>Набір Денний та нічний крем</h3>
             <p class="item_price">1230 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0008">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0008">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0008">Детальніше</span>
+              <div class="in_basket_wrap" >
+                <button class="in_basket" data-index="0008">В кошик</button>
               </div>
             </div>
-          </div>
-          <div class="item_card">
+          </li>
+          <li class="item_card">
             <div class="item_img">
               <img src="./img/product_9.png" alt="#" />
             </div>
             <h3>Матуючий денний крем для жиної шкіри</h3>
             <p class="item_price">680 грн</p>
             <div class="item_btns">
-              <span class="detail" data-index="0009">Детальніше</span>
-              <div class="in_basket_wrap" data-index="0009">
-                <button class="in_basket">В кошик</button>
+              <span class="detail" data-id="0009">Детальніше</span>
+              <div class="in_basket_wrap" >
+                <button class="in_basket" data-index="0009">В кошик</button>
               </div>
             </div>
-          </div>
-        </div>
+          </li>
+        </ul>
         <span class="show_more">Показати ще</span>
       </div>
+      <div class="container_product_card">
+        <span class="return"></span> 
+        <div class="information">
+          <div class="information_img_wrap">
+            <img class="information_img" src="./img/product_1.png" alt="#" />
+          </div>
+          <div class="information_text">
+            <h3 class="information_title"></h3>
+            <p class="information_discr"></p>
+            <p class="price">850 грн</p>
+              <div class="information_btn_wrapper">
+                <button class="product_to_basket" data-index="0">В кошик</button>
+              </div>
+          </div>
+        </div>
+        <div class="composition">
+          <h4>Склад</h4>
+          <p class="product_composition"></p>
+        </div>
+      </div>
+    </div>
     </main>
     <footer>
       <div class="container">
@@ -244,5 +258,7 @@
       </div>
     </footer>
     <script src="./js/main.js"></script>
+    <script src="./js/goods.js"></script>
+    <script src="./js/catalog.js"></script>
   </body>
 </html>

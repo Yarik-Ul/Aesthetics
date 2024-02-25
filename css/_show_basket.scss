@@ -63,6 +63,8 @@ header {
             .item_info {
               display: flex;
               justify-content: space-around;
+              padding: 0 10px;
+              
               h3 {
                 padding-right: 10px;
               }
@@ -78,7 +80,7 @@ header {
                   position: absolute;
                   width: 100%;
                   height: 3px;
-                  background-color: $green;
+                  background-color: red;
                   top: 50%;
                   left: 0;
                   transform: rotateZ(45deg);
@@ -88,18 +90,16 @@ header {
                   position: absolute;
                   width: 100%;
                   height: 3px;
-                  background-color: $green;
+                  background-color: red;
                   top: 50%;
                   right: 0;
                   transform: rotateZ(-45deg);
                 }
               }
-              input {
-                width: 80px;
-                height: 40px;
-                font-size: 18px;
-                text-align: center;
-              }
+            }
+            p {
+              align-self: flex-end;
+              padding-right: 10px;
             }
           }
         }

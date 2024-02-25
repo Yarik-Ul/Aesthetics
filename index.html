@@ -25,14 +25,13 @@
           <nav class="navigate">
             <ul>
               <li><a href="./catalog.html">Каталог</a></li>
-              <li>
-                <a href="./delivery.html">Доставка та оплата</a>
-              </li>
+              <li><a href="./delivery.html">Доставка та оплата</a></li>
               <li><a href="./blog.html">Блог</a></li>
               <li><a href="#">Контакти</a></li>
             </ul>
           </nav>
-          <div class="basket_icon"></div>
+          <div class="basket_icon"> <span class="product_in_busket">0</span></div>
+         
           <div class="menu_burger">
             <span class="burger_line"></span>
             <span class="burger_line"></span>
@@ -40,7 +39,7 @@
           </div>
           <div class="show_basket">
             <p class="basket_title">Ваше замовлення</p>
-            <p>В кошику 8 товарів</p>
+            <p>В кошику <span class="quantity_of_products"></span> товарів</p>
             <div class="basket_items">
               <div class="basket_item">
                 <div class="basket_items_img">
@@ -58,8 +57,8 @@
                 </div>
               </div>
             </div>
-
-            <p class="total">Загальна сумма: 2800 грн</p>
+  
+            <p class="total">Загальна сумма: <span class="total_sum"></span> грн</p>
             <span class="continue">Продовжити покупки</span>
             <button class="buy">Оформити</button>
             <div class="to_order">
@@ -213,5 +212,6 @@
     </div>
     <script src="./js/main.js"></script>
     <script src="./js/slider.js"></script>
+    <script src="./js/goods.js"></script>
   </body>
 </html>
