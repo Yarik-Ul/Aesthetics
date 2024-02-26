@@ -53,7 +53,7 @@ function showMyBasket(event) {
       </div>
       <div class="basket_item_info">
         <div class="item_info">
-          <h3>${basket[i].name}</h3>
+          <h3 style="font-size: 20px">${basket[i].name}</h3>
           <span data-index="${basket[i].id}" class="delete"></span>
         </div>
         <div class="item_info">

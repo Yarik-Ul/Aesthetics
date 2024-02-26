@@ -443,7 +443,8 @@ main .container .blog .container .blog_item {
 main .container .blog .container .blog_item .blog_img_wrap img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 main .container .blog .container .blog_item .blog_text {
   display: flex;
@@ -1239,6 +1240,4 @@ header .container .show_basket_active {
   main .container_product_card .composition {
     font-size: 16px;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
