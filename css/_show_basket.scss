@@ -64,7 +64,23 @@ header {
               display: flex;
               justify-content: space-around;
               padding: 0 10px;
-              
+              .counter {
+                margin: 0 10px;
+              }
+              .counter_wrap {
+               display: flex;
+               align-items: center;
+               .btn_plus, .btn_minus {
+                width: 20px;
+                height: 20px;
+                border: none;
+                background-color: $green;
+                color: #fff;
+                cursor: pointer;
+               }
+                
+             
+            }
               h3 {
                 padding-right: 10px;
               }

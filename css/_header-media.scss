@@ -23,12 +23,12 @@
         z-index: 20;
       }
       .navigate {
-        position: absolute;
+        position: fixed;
         top: 0;
-        left: 0;
+        right: - 100%;
         z-index: 10;
-        transform: translateX(100vw);
-        transition: transform 0.6s ease-in-out;
+        
+        transition: all 400ms ease-in-out;
         ul {
           width: 50vw;
           height: 300px;
@@ -61,7 +61,7 @@
         }
       }
       .opened_nav {
-        transform: translateX(50vw);
+        right: 0;
       }
     }
   }

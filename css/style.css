@@ -241,7 +241,7 @@ header .container .basket_icon:hover {
 header .container .basket_icon .product_in_busket {
   position: absolute;
   top: 0;
-  right: -14px;
+  right: -20px;
 }
 header .container .menu_burger {
   position: absolute;
@@ -298,12 +298,11 @@ header .container .menu_burger .opened:nth-of-type(3) {
     z-index: 20;
   }
   header .container .navigate {
-    position: absolute;
+    position: fixed;
     top: 0;
-    left: 0;
+    right: -100%;
     z-index: 10;
-    transform: translateX(100vw);
-    transition: transform 0.6s ease-in-out;
+    transition: all 400ms ease-in-out;
   }
   header .container .navigate ul {
     width: 50vw;
@@ -333,7 +332,7 @@ header .container .menu_burger .opened:nth-of-type(3) {
     display: block;
   }
   header .container .opened_nav {
-    transform: translateX(50vw);
+    right: 0;
   }
 }
 main .container {
@@ -444,8 +443,7 @@ main .container .blog .container .blog_item {
 main .container .blog .container .blog_item .blog_img_wrap img {
   width: 100%;
   height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 main .container .blog .container .blog_item .blog_text {
   display: flex;
@@ -1127,6 +1125,21 @@ header .container .show_basket .basket_items .basket_item .basket_item_info .ite
   justify-content: space-around;
   padding: 0 10px;
 }
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter {
+  margin: 0 10px;
+}
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap {
+  display: flex;
+  align-items: center;
+}
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_plus, header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_minus {
+  width: 20px;
+  height: 20px;
+  border: none;
+  background-color: #4b6049;
+  color: #fff;
+  cursor: pointer;
+}
 header .container .show_basket .basket_items .basket_item .basket_item_info .item_info h3 {
   padding-right: 10px;
 }
@@ -1226,4 +1239,6 @@ header .container .show_basket_active {
   main .container_product_card .composition {
     font-size: 16px;
   }
-}/*# sourceMappingURL=style.css.map */
+}
+
+/*# sourceMappingURL=style.css.map */

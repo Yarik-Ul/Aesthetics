@@ -1,5 +1,5 @@
 // button show more products *****
-
+productInBasket
 const mainCatalogContainer = document.querySelector(".main_container_catalog");
 
 const btnShowMore = document.querySelector(".show_more"); //btn show more products
@@ -113,7 +113,7 @@ function addProductToBasket(event) {
         basket.push(elem);
         }
       }
-      productInBasket.innerText = basket.length;
+      productInBasket.innerText = howManyProductInBasket;
     });
   }
   sessionStorage.setItem("basket", JSON.stringify(basket));
@@ -125,8 +125,8 @@ mainCatalogContainer.addEventListener("click", addProductToBasket);
 
 
 function removeFromBasket (event) {
+  let index;
   if (event.target.dataset.index) {
-    let index;
     for (let i = 0; i < basket.length; i++) {
         if (basket[i].id === event.target.dataset.index) {
             index = i; 
@@ -135,12 +135,36 @@ function removeFromBasket (event) {
 basket.splice(index, 1);
 
 sessionStorage.setItem("basket", JSON.stringify(basket));
-productInBasket.innerText = basket.length;
+productInBasket.innerText = howManyProductInBasket;
   }
  
 }
 
+function basketActions(event) {
+  if (event.target.classList.contains("btn_minus")) {
+ //minus products
+    basket.forEach((elem)=>{
+      if(elem.id === event.target.dataset.id && elem.counter >  1) {
+          elem.counter--;
+        }
+        
+      
+    })
+  }
+  //plus products
+  if (event.target.classList.contains("btn_plus")) {
+    
+    basket.forEach((elem)=>{
+      if(elem.id === event.target.dataset.id) {
+        elem.counter++;
+      }
+    })
+  }
+  sessionStorage.setItem("basket", JSON.stringify(basket));
+  removeFromBasket(event);
+}
 
-basketWindow.addEventListener("click", removeFromBasket);
+basketWindow.addEventListener("click", basketActions);
 
-//// remove product from basket
+
+// operations with basket ****
