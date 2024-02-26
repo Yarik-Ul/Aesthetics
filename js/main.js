@@ -11,6 +11,11 @@ headerBurger.onclick = () => {
     btn.classList.toggle("opened");
   });
   navMenu.classList.toggle("opened_nav");
+  if(navMenu.classList.contains("opened_nav")) {
+    headerBurger.style.position = "fixed";
+  } else {
+    headerBurger.style.position = "absolute";
+  }
 };
 
 // END berger menu *****
