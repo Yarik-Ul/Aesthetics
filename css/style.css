@@ -1115,6 +1115,10 @@ header .container .show_basket .basket_items {
 header .container .show_basket .basket_items .basket_item {
   display: flex;
   border: 1px solid #484847;
+  margin-bottom: 5px;
+}
+header .container .show_basket .basket_items .basket_item .basket_item_img {
+  min-width: 128px;
 }
 header .container .show_basket .basket_items .basket_item .basket_item_info {
   display: flex;
@@ -1141,7 +1145,8 @@ header .container .show_basket .basket_items .basket_item .basket_item_info .ite
   color: #fff;
   cursor: pointer;
 }
-header .container .show_basket .basket_items .basket_item .basket_item_info .item_info h3 {
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info h3, header .container .show_basket .basket_items .basket_item .basket_item_info .item_info p {
+  font-size: clamp(12px, 1.6vw, 24px);
   padding-right: 10px;
 }
 header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .delete {

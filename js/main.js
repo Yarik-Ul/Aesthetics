@@ -11,7 +11,7 @@ headerBurger.onclick = () => {
     btn.classList.toggle("opened");
   });
   navMenu.classList.toggle("opened_nav");
-  if(navMenu.classList.contains("opened_nav")) {
+  if (navMenu.classList.contains("opened_nav")) {
     headerBurger.style.position = "fixed";
   } else {
     headerBurger.style.position = "absolute";
@@ -29,13 +29,13 @@ const header = document.querySelector("header");
 const showOrder = document.querySelector(".to_order"); //window form for ordering
 const toOrder = document.querySelector(".buy"); //btn for show ordring window
 const basketContainer = document.querySelector(".basket_items");
-const quanOfProducts = document.querySelector(".quantity_of_products");
-const totalSum = document.querySelector(".total_sum");
-const counter = document.querySelector(".counter");
-const productInBasket = document.querySelector(".product_in_busket");
+const quanOfProducts = document.querySelector(".quantity_of_products"); //displays the number of products in the basket window
+const totalSum = document.querySelector(".total_sum"); //displays the total cost of goods in the shopping cart window
+const counter = document.querySelector(".counter"); //quantity of the product
+const productInBasket = document.querySelector(".product_in_busket"); //displays the number of products in the global window
 
 let basket = [];
-
+//check basket in session storage
 function checkLocalBasket() {
   if (sessionStorage.getItem("basket") != null) {
     basket = JSON.parse(sessionStorage.getItem("basket"));
@@ -44,11 +44,16 @@ function checkLocalBasket() {
 
 checkLocalBasket();
 
-let howManyProductInBasket = basket.reduce((sum, elem) => {
-  return sum + elem.counter;
-}, 0);
-productInBasket.innerText = howManyProductInBasket;
+//the number of products in the basket
+function howManyProductsInBasket(elem) {
+  elem.innerText = basket.reduce((sum, elem) => {
+    return sum + elem.counter;
+  }, 0);
+}
 
+howManyProductsInBasket(productInBasket);
+
+//output basket to HTML
 function showMyBasket(event) {
   let outProductInBasket = "";
   for (let i = 0; i < basket.length; i++) {
@@ -58,7 +63,7 @@ function showMyBasket(event) {
       </div>
       <div class="basket_item_info">
         <div class="item_info">
-          <h3 style="font-size: 20px">${basket[i].name}</h3>
+          <h3>${basket[i].name}</h3>
           <span data-index="${basket[i].id}" class="delete"></span>
         </div>
         <div class="item_info">
@@ -73,12 +78,11 @@ function showMyBasket(event) {
     </div>`;
   }
   totalSum.innerText = basket.reduce((sum, elem) => {
-    return sum + (elem.price * elem.counter);
+    return sum + elem.price * elem.counter;
   }, 0);
 
-  quanOfProducts.innerText = basket.reduce((sum, elem) => {
-    return sum + elem.counter;
-  }, 0);
+  howManyProductsInBasket(quanOfProducts);
+
   basketContainer.innerHTML = outProductInBasket;
 
   if (event.target === showBasket || event.target === continueBuy) {

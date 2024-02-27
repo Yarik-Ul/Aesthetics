@@ -1,7 +1,6 @@
 // button show more products *****
-productInBasket
-const mainCatalogContainer = document.querySelector(".main_container_catalog");
 
+const mainCatalogContainer = document.querySelector(".main_container_catalog");
 const btnShowMore = document.querySelector(".show_more"); //btn show more products
 const catalog = document.querySelector(".catalog"); // catalog wrapper
 
@@ -9,34 +8,27 @@ function showMoreProducts(event) {
   if (event.target === btnShowMore) {
     //by the date attribute, we determine the product that is already on the page
     const productsOnPage = document.querySelectorAll(".detail"); //get node list
-    let inPage = [];
-    productsOnPage.forEach((elem) => {
-      inPage.push(elem.dataset.id);
-    });
-    //determine by ID products that are not yet on the page
-    let inCtalog = [];
-    productsCatalog.map((elem) => {
-      if (!inPage.includes(elem.id)) inCtalog.push(elem);
-    });
+    const idProductsOnPage = Array.from(productsOnPage).map(elem => elem.dataset.id); //get the ID of the elements that are currently on the page
+    const filteredCatalog = productsCatalog.filter(elem => !idProductsOnPage.includes(elem.id)); //create a catalog of products that are not yet on the page
 
     let outProductInPage = "";
 
-    if (inCtalog.length < 1) {
+    if (filteredCatalog.length < 1) {
       btnShowMore.style.display = "none";
       return;
     } else {
       for (let i = 0; i < 3; i++) {
         outProductInPage += `<li class="item_card">
         <div class="item_img">
-          <img src="${inCtalog[i].image}" alt="#" />
+          <img src="${filteredCatalog[i].image}" alt="#" />
         </div>
-        <h3>${inCtalog[i].name}</h3>
-        <p class="item_price">${inCtalog[i].price + " грн"}</p>
+        <h3>${filteredCatalog[i].name}</h3>
+        <p class="item_price">${filteredCatalog[i].price + " грн"}</p>
         <div class="item_btns">
-          <span class="detail" data-id="${inCtalog[i].id}">Детальніше</span>
+          <span class="detail" data-id="${filteredCatalog[i].id}">Детальніше</span>
           <div class="in_basket_wrap" >
             <button class="in_basket" data-index="${
-              inCtalog[i].id
+              filteredCatalog[i].id
             }">В кошик</button>
           </div>
         </div>
@@ -81,7 +73,7 @@ function showProductPage(event) {
 
     productContainer.classList.toggle("active");
     catalogContainer.classList.toggle("active");
-
+    //to up
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }
 
@@ -94,8 +86,6 @@ function showProductPage(event) {
 mainCatalogContainer.addEventListener("click", showProductPage);
 
 // ENDcreation and display of the product page *****
-
-
 
 // operations with basket ****
 
@@ -113,7 +103,9 @@ function addProductToBasket(event) {
         basket.push(elem);
         }
       }
-      productInBasket.innerText = howManyProductInBasket;
+
+      howManyProductsInBasket (productInBasket);
+      
     });
   }
   sessionStorage.setItem("basket", JSON.stringify(basket));
@@ -122,7 +114,6 @@ function addProductToBasket(event) {
 mainCatalogContainer.addEventListener("click", addProductToBasket);
 
 // remove product from basket
-
 
 function removeFromBasket (event) {
   let index;
@@ -135,9 +126,10 @@ function removeFromBasket (event) {
 basket.splice(index, 1);
 
 sessionStorage.setItem("basket", JSON.stringify(basket));
-productInBasket.innerText = howManyProductInBasket;
-  }
- 
+
+howManyProductsInBasket (productInBasket);
+
+  } 
 }
 
 function basketActions(event) {
@@ -147,8 +139,6 @@ function basketActions(event) {
       if(elem.id === event.target.dataset.id && elem.counter >  1) {
           elem.counter--;
         }
-        
-      
     })
   }
   //plus products

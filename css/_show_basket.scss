@@ -52,10 +52,14 @@ header {
       .basket_items {
         max-height: 400px;
         overflow-y: scroll;
+        
         .basket_item {
           display: flex;
           border: 1px solid $gray;
-
+          margin-bottom: 5px;
+          .basket_item_img {
+            min-width: 128px;
+          }
           .basket_item_info {
             display: flex;
             flex-direction: column;
@@ -81,7 +85,8 @@ header {
                 
              
             }
-              h3 {
+              h3, p {
+                font-size: clamp(12px, 1.6vw, 24px);
                 padding-right: 10px;
               }
               .delete {
