@@ -55,6 +55,15 @@
         .first_view_img {
         }
       }
+      .slider {
+        .slider_dots {
+          width: 100px;
+          .dot {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
   }
 }

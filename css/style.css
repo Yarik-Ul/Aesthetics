@@ -416,7 +416,7 @@ main .container .slider .slider_dots .dot {
   display: block;
   width: 30px;
   height: 100%;
-  border: 1px solid #4b6049;
+  border: 2px solid #4b6049;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -533,6 +533,13 @@ main .container .blog .container .blog_item .blog_text .blog_btn a {
   }
   main .container .first_view .first_view_text p {
     margin-bottom: 20px;
+  }
+  main .container .slider .slider_dots {
+    width: 100px;
+  }
+  main .container .slider .slider_dots .dot {
+    width: 20px;
+    height: 20px;
   }
 }
 @media (max-width: 767px) {
