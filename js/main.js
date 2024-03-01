@@ -95,3 +95,38 @@ function showMyBasket(event) {
 header.addEventListener("click", showMyBasket);
 
 //Show basket ***
+
+//smooth transition by anchor link*****
+
+const anchor = document.querySelector(".anchor_link"); //link contacts
+anchor.addEventListener("click", (e) => {
+  e.preventDefault();
+  let target = document.querySelector("#contacts");
+  target.scrollIntoView({ behavior: "smooth" });
+});
+
+// END smooth transition by anchor link*****
+
+// button to up
+const arrowTop = document.querySelector(".btn_to_top"); // btn to top
+let arrowIsShown = false; // flag to show btn
+const screenHeight = window.screen.height; //window height
+
+function scroll() {
+  if (!arrowIsShown && window.scrollY >= screenHeight) {
+    arrowIsShown = true;
+    arrowTop.classList.remove("hidden_btn_to_top");
+  }
+  if (arrowIsShown && window.scrollY < screenHeight) {
+    arrowIsShown = false;
+    arrowTop.classList.add("hidden_btn_to_top");
+  }
+}
+
+arrowTop.addEventListener("click", () => {
+  window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+});
+
+window.addEventListener("scroll", scroll);
+
+//// button to up
