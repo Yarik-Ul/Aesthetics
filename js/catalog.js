@@ -85,11 +85,9 @@ function showProductPage(event) {
 }
 mainCatalogContainer.addEventListener("click", showProductPage);
 
-// ENDcreation and display of the product page *****
+// END creation and display of the product page *****
 
-// operations with basket ****
-
-//add product to basket
+//add product to basket *****
 const btnToBasket = document.querySelector(".in_basket");
 
 function addProductToBasket(event) {
@@ -113,48 +111,4 @@ function addProductToBasket(event) {
 
 mainCatalogContainer.addEventListener("click", addProductToBasket);
 
-// remove product from basket
-
-function removeFromBasket (event) {
-  let index;
-  if (event.target.dataset.index) {
-    for (let i = 0; i < basket.length; i++) {
-        if (basket[i].id === event.target.dataset.index) {
-            index = i; 
-        }
-}
-basket.splice(index, 1);
-
-sessionStorage.setItem("basket", JSON.stringify(basket));
-
-howManyProductsInBasket (productInBasket);
-
-  } 
-}
-
-function basketActions(event) {
-  if (event.target.classList.contains("btn_minus")) {
- //minus products
-    basket.forEach((elem)=>{
-      if(elem.id === event.target.dataset.id && elem.counter >  1) {
-          elem.counter--;
-        }
-    })
-  }
-  //plus products
-  if (event.target.classList.contains("btn_plus")) {
-    
-    basket.forEach((elem)=>{
-      if(elem.id === event.target.dataset.id) {
-        elem.counter++;
-      }
-    })
-  }
-  sessionStorage.setItem("basket", JSON.stringify(basket));
-  removeFromBasket(event);
-}
-
-basketWindow.addEventListener("click", basketActions);
-
-
-// operations with basket ****
+// END add product to basket *****

@@ -1165,6 +1165,22 @@ header .container .show_basket {
   display: none;
   flex-direction: column;
   gap: 20px;
+  box-shadow: 0 0 10px 5px #4b6049;
+}
+header .container .show_basket .pop_up_thanks {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 25;
+  width: 300px;
+  height: 140px;
+  background-color: #4b6049;
+  color: #fff;
+  font-size: 24px;
+  border-radius: 5px;
+  text-align: center;
+  padding-top: 10px;
 }
 header .container .show_basket .to_order {
   display: none;

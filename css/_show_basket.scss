@@ -13,6 +13,22 @@ header {
       display: none;
       flex-direction: column;
       gap: 20px;
+      box-shadow: 0 0 10px 5px $green;
+      .pop_up_thanks {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 25;
+        width: 300px;
+        height: 140px;
+        background-color: $green;
+        color: #fff;
+        font-size: 24px;
+        border-radius: 5px;
+        text-align: center;
+        padding-top: 10px;
+      }
       .to_order {
         display: none;
         form {

@@ -96,6 +96,51 @@ header.addEventListener("click", showMyBasket);
 
 //Show basket ***
 
+// operations with basket ****
+
+// remove product from basket
+
+function removeFromBasket(event) {
+  let index;
+  if (event.target.dataset.index) {
+    for (let i = 0; i < basket.length; i++) {
+      if (basket[i].id === event.target.dataset.index) {
+        index = i;
+      }
+    }
+    basket.splice(index, 1);
+
+    sessionStorage.setItem("basket", JSON.stringify(basket));
+
+    howManyProductsInBasket(productInBasket);
+  }
+}
+
+function basketActions(event) {
+  if (event.target.classList.contains("btn_minus")) {
+    //minus products
+    basket.forEach((elem) => {
+      if (elem.id === event.target.dataset.id && elem.counter > 1) {
+        elem.counter--;
+      }
+    });
+  }
+  //plus products
+  if (event.target.classList.contains("btn_plus")) {
+    basket.forEach((elem) => {
+      if (elem.id === event.target.dataset.id) {
+        elem.counter++;
+      }
+    });
+  }
+  sessionStorage.setItem("basket", JSON.stringify(basket));
+  removeFromBasket(event);
+}
+
+basketWindow.addEventListener("click", basketActions);
+
+// operations with basket ****
+
 //smooth transition by anchor link*****
 
 const anchor = document.querySelector(".anchor_link"); //link contacts
@@ -129,4 +174,52 @@ arrowTop.addEventListener("click", () => {
 
 window.addEventListener("scroll", scroll);
 
-//// button to up
+// button to up
+
+//request *****
+
+const url = "#";
+const orderForm = document.querySelector(".order_form");
+const orderBtn = document.querySelector(".send_order");
+orderForm.addEventListener("submit", sendOrder);
+
+async function sendOrder(event) {
+  event.preventDefault();
+  const firstname = document.getElementById("firstname").value.trim();
+  const secondname = document.getElementById("secondname").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+//do normal validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+  if (firstname === "" || secondname === "" || email === "" || phone === "") {
+    showPopUpThanks("Будь ласка, заповніть усі поля форми.");
+  } else {
+    const myOrderForm = new FormData(orderForm);
+    let products = sessionStorage.getItem("basket");
+    myOrderForm.append("basket", products);
+
+    await fetch(url, {
+      method: "POST",
+      body: myOrderForm,
+    });
+  }
+}
+
+//pop-ua after request
+orderBtn.addEventListener("click", () =>
+  showPopUpThanks(
+    "Дякуємо за замовлення! Найближчим часом з вами зв'яжеться наш менеджер"
+  )
+);
+
+function showPopUpThanks(text) {
+  const popUpThanks = document.createElement("div");
+  popUpThanks.classList.add("pop_up_thanks");
+  popUpThanks.innerText = text;
+  basketWindow.append(popUpThanks);
+  setTimeout(() => {
+    popUpThanks.remove();
+  }, 4000);
+}
+
+// END request *****
