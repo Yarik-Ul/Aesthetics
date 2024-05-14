@@ -50,7 +50,7 @@ function howManyProductsInBasket(elem) {
     return sum + elem.counter;
   }, 0);
 }
-
+howManyProductsInBasket(productInBasket);
 //output basket to HTML
 function showMyBasket(event) {
   let outProductInBasket = "";
@@ -107,8 +107,6 @@ function removeFromBasket(event) {
     basket.splice(index, 1);
 
     sessionStorage.setItem("basket", JSON.stringify(basket));
-
-    
   }
 }
 
@@ -186,7 +184,7 @@ async function sendOrder(event) {
   const secondname = document.getElementById("secondname").value.trim();
   const email = document.getElementById("email").value.trim();
   const phone = document.getElementById("phone").value.trim();
-//do normal validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  //do normal validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   if (firstname === "" || secondname === "" || email === "" || phone === "") {
     showPopUpThanks("Будь ласка, заповніть усі поля форми.");
