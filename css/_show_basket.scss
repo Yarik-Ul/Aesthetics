@@ -1,139 +1,158 @@
 header {
   .container {
     .show_basket {
-      max-width: 768px;
-      height: auto;
-      border: 1px solid $green;
-      background-color: #fff;
       position: absolute;
       top: 0;
       right: 0;
       z-index: 21;
-      padding: 10px;
       display: none;
       flex-direction: column;
       gap: 20px;
+      max-width: 768px;
+      height: auto;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid $green;
       box-shadow: 0 0 10px 5px $green;
+
       .pop_up_thanks {
         position: fixed;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
         z-index: 25;
         width: 300px;
         height: 140px;
-        background-color: $green;
-        color: #fff;
-        font-size: 24px;
-        border-radius: 5px;
-        text-align: center;
         padding-top: 10px;
+        font-size: 24px;
+        color: #fff;
+        text-align: center;
+        background-color: $green;
+        border-radius: 5px;
+        transform: translate(-50%, -50%);
       }
+
       .to_order {
         display: none;
+
         form {
           display: flex;
-          max-width: 368px;
           flex-direction: column;
           gap: 10px;
+          max-width: 368px;
+
           label {
             font-size: 20px;
             }
+
             input {
               width: 200px;
               height: 30px;
               font-size: 20px;
           }
+
           .send_order {
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
-            color: #fff;
-            border: none;
             width: 200px;
             height: 50px;
-            background-color: $green;
+            font-size: 18px;
+            color: #fff;
             cursor: pointer;
+            background-color: $green;
+            border: none;
           }
         }
       }
+
       .to_order_active {
         display: block;
       }
+
       .basket_title {
         font-size: 26px;
         line-height: 49px;
       }
+
       .basket_items {
         max-height: 400px;
         overflow-y: scroll;
         
         .basket_item {
           display: flex;
-          border: 1px solid $gray;
           margin-bottom: 5px;
+          border: 1px solid $gray;
+
           .basket_item_img {
             min-width: 128px;
           }
+
           .basket_item_info {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+
             .item_info {
               display: flex;
               justify-content: space-around;
               padding: 0 10px;
+
               .counter {
                 margin: 0 10px;
               }
+
               .counter_wrap {
                display: flex;
                align-items: center;
+
                .btn_plus, .btn_minus {
                 width: 20px;
                 height: 20px;
-                border: none;
-                background-color: $green;
                 color: #fff;
                 cursor: pointer;
+                background-color: $green;
+                border: none;
                }
                 
              
             }
+
               h3, p {
-                font-size: clamp(12px, 1.6vw, 24px);
                 padding-right: 10px;
+                font-size: clamp(12px, 1.6vw, 24px);
               }
+
               .delete {
-                display: block;
                 position: relative;
+                display: block;
                 width: 40px;
                 height: 40px;
                 cursor: pointer;
 
                 &::after {
-                  content: "";
                   position: absolute;
-                  width: 100%;
-                  height: 3px;
-                  background-color: red;
                   top: 50%;
                   left: 0;
-                  transform: rotateZ(45deg);
-                }
-                &::before {
-                  content: "";
-                  position: absolute;
                   width: 100%;
                   height: 3px;
+                  content: "";
                   background-color: red;
+                  transform: rotateZ(45deg);
+                }
+
+                &::before {
+                  position: absolute;
                   top: 50%;
                   right: 0;
+                  width: 100%;
+                  height: 3px;
+                  content: "";
+                  background-color: red;
                   transform: rotateZ(-45deg);
                 }
               }
             }
+
             p {
               align-self: flex-end;
               padding-right: 10px;
@@ -145,20 +164,22 @@ header {
       .total {
         align-self: flex-end;
       }
+
       .continue,
       .buy {
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 18px;
-        color: #fff;
-        border: none;
         width: 200px;
         height: 50px;
-        background-color: $green;
+        font-size: 18px;
+        color: #fff;
         cursor: pointer;
+        background-color: $green;
+        border: none;
       }
     }
+
     .show_basket_active {
       display: flex;
     }

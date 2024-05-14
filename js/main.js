@@ -51,8 +51,6 @@ function howManyProductsInBasket(elem) {
   }, 0);
 }
 
-howManyProductsInBasket(productInBasket);
-
 //output basket to HTML
 function showMyBasket(event) {
   let outProductInBasket = "";
@@ -81,15 +79,13 @@ function showMyBasket(event) {
     return sum + elem.price * elem.counter;
   }, 0);
 
-  howManyProductsInBasket(quanOfProducts);
-
-  basketContainer.innerHTML = outProductInBasket;
-
   if (event.target === showBasket || event.target === continueBuy) {
     basketWindow.classList.toggle("show_basket_active");
   } else if (event.target === toOrder) {
     showOrder.classList.toggle("to_order_active");
   }
+  basketContainer.innerHTML = outProductInBasket;
+  howManyProductsInBasket(quanOfProducts);
 }
 
 header.addEventListener("click", showMyBasket);
@@ -112,7 +108,7 @@ function removeFromBasket(event) {
 
     sessionStorage.setItem("basket", JSON.stringify(basket));
 
-    howManyProductsInBasket(productInBasket);
+    
   }
 }
 
@@ -135,6 +131,7 @@ function basketActions(event) {
   }
   sessionStorage.setItem("basket", JSON.stringify(basket));
   removeFromBasket(event);
+  howManyProductsInBasket(productInBasket);
 }
 
 basketWindow.addEventListener("click", basketActions);

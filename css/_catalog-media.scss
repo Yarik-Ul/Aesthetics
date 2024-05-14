@@ -6,6 +6,7 @@
       }
     }
   }
+
   @media (max-width: $media_l) {
     main {
       .container_product_card {
@@ -13,10 +14,12 @@
           .information_img_wrap {
             flex: 0 0 320px;
           }
+
           .information_text {
             .information_title {
               font-size: 24px;
             }
+
             .information_discr {
               font-size: 20px;
             }
@@ -24,6 +27,7 @@
               .information_btn_wrapper {
                 width: 160px;
                 height: 40px;
+
                 .product_to_busket {
                   font-size: 18px;
                 }
@@ -31,25 +35,29 @@
             
           }
         }
+
         .composition {
           font-size: 18px;
         }
       }
     }
   }
+
   @media (max-width: $media_m) {
     main {
       .container_product_card {
         .information {
           flex-direction: column;
+
           .information_img_wrap {
-            margin: 0 auto;
             width: 60%;
+            margin: 0 auto;
           }
         }
       }
     }
   }
+
   @media (max-width: $media_s) {
     main {
       .container_product_card {
@@ -57,10 +65,12 @@
           .information_img_wrap {
             width: 80%;
           }
+
           .information_text {
             font-size: 16px;
           }
         }
+
         .composition {
           font-size: 16px;
         }

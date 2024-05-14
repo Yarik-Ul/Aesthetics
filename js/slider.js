@@ -4,17 +4,17 @@ const sliderItems = document.querySelectorAll(".slider_item");
 const sliderDot = document.querySelectorAll(".dot");
 const elWidth = sliderItems[0].offsetWidth;
 let sliderInterval = 2500;
-let sliderCounter = 0;
+let sliderIndex = 0;
 
 function moveSlider() {
   //pagination
-  sliderCounter++;
-  if (sliderCounter === sliderItems.length) {
-    sliderCounter = 0;
+  sliderIndex++;
+  if (sliderIndex === sliderItems.length) {
+    sliderIndex = 0;
   }
 
   sliderDot.forEach((elem) => {
-    if (Number(elem.dataset.dot) === sliderCounter) {
+    if (Number(elem.dataset.dot) === sliderIndex) {
       elem.style.background = "#4b6049";
     } else {
       elem.style.background = "none";

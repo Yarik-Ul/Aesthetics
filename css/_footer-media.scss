@@ -4,6 +4,7 @@
       .first_side_footer {
         width: 100%;
       }
+
       .second_side_footer {
         .second_side_wrapper {
           width: 100%;
@@ -20,6 +21,7 @@
       .second_side_footer {
         .second_side_wrapper {
           font-size: 16px;
+
           .tel_and_pay {
             .telephone {
               padding-left: 10px;
@@ -30,6 +32,7 @@
     }
   }
 }
+
 @media (max-width: $media_m) {
   footer {
     .container {
@@ -37,10 +40,12 @@
         .second_side_wrapper {
           display: flex;
           flex-direction: column;
+
           .work_time {
             padding-left: 10px;
             margin-bottom: 10px;
           }
+
           .tel_and_pay {
             display: flex;
           }
@@ -49,6 +54,7 @@
     }
   }
 }
+
 @media (max-width: $media_s) {
   footer {
     .container {

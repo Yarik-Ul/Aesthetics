@@ -12,15 +12,18 @@ $media_m: 767px;
 $media_s: 479px;
 
 @import "reset";
+
 body {
   font-family: $ff;
   font-size: $fs;
   color: $gray;
+
   .container {
     max-width: $maxWidth;
     margin: 0 auto;
   }
 }
+
 @import "header";
 @import "header-media";
 @import "main";
