@@ -1,5 +1,5 @@
 const productsCatalog = JSON.parse(localStorage.getItem("goods")); //receive a catalog of goods from local storage
-
+const body = document.querySelector('body');
 // berger menu ******
 
 const headerBurger = document.querySelector(".menu_burger"); //burger-menu btn for click
@@ -79,8 +79,12 @@ function showMyBasket(event) {
     return sum + elem.price * elem.counter;
   }, 0);
 
-  if (event.target === showBasket || event.target === continueBuy) {
+  if (event.target === showBasket) {
     basketWindow.classList.toggle("show_basket_active");
+    body.style.overflow = 'hidden';
+  } else if(event.target === continueBuy){
+    basketWindow.classList.toggle("show_basket_active");
+    body.style.overflow = '';
   } else if (event.target === toOrder) {
     if (!basket.length) {
       showPopUp("Ваш кошик порожній!");

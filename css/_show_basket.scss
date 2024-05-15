@@ -14,6 +14,8 @@ header {
       background-color: #fff;
       border: 1px solid $green;
       box-shadow: 0 0 10px 5px $green;
+      max-height: 100vh;
+      overflow-y: scroll;
 
       .pop_up_thanks {
         position: fixed;
@@ -83,6 +85,7 @@ header {
 
       .basket_items {
         max-height: 400px;
+        min-height: 400px;
         overflow-y: scroll;
         
         .basket_item {
@@ -179,6 +182,7 @@ header {
         justify-content: center;
         width: 200px;
         height: 50px;
+        padding: 8px;
         font-size: 18px;
         color: #fff;
         cursor: pointer;

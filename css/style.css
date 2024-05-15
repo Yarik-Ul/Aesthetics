@@ -1174,6 +1174,8 @@ header .container .show_basket {
   background-color: #fff;
   border: 1px solid #4b6049;
   box-shadow: 0 0 10px 5px #4b6049;
+  max-height: 100vh;
+  overflow-y: scroll;
 }
 header .container .show_basket .pop_up_thanks {
   position: fixed;
@@ -1234,6 +1236,7 @@ header .container .show_basket .basket_title {
 }
 header .container .show_basket .basket_items {
   max-height: 400px;
+  min-height: 400px;
   overflow-y: scroll;
 }
 header .container .show_basket .basket_items .basket_item {
@@ -1314,6 +1317,7 @@ header .container .show_basket .buy {
   justify-content: center;
   width: 200px;
   height: 50px;
+  padding: 8px;
   font-size: 18px;
   color: #fff;
   cursor: pointer;
