@@ -1174,14 +1174,14 @@ header .container .show_basket {
   background-color: #fff;
   border: 1px solid #4b6049;
   box-shadow: 0 0 10px 5px #4b6049;
-  max-height: 100vh;
+  max-height: 90vh;
   overflow-y: scroll;
 }
 header .container .show_basket .pop_up_thanks {
   position: fixed;
   top: 50%;
   left: 50%;
-  z-index: 25;
+  z-index: 50;
   width: 300px;
   height: 140px;
   padding-top: 10px;
@@ -1232,11 +1232,10 @@ header .container .show_basket .to_order_active {
 }
 header .container .show_basket .basket_title {
   font-size: 26px;
-  line-height: 49px;
 }
 header .container .show_basket .basket_items {
   max-height: 400px;
-  min-height: 400px;
+  min-height: 160px;
   overflow-y: scroll;
 }
 header .container .show_basket .basket_items .basket_item {
@@ -1264,7 +1263,8 @@ header .container .show_basket .basket_items .basket_item .basket_item_info .ite
   display: flex;
   align-items: center;
 }
-header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_plus, header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_minus {
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_plus,
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info .counter_wrap .btn_minus {
   width: 20px;
   height: 20px;
   color: #fff;
@@ -1272,7 +1272,8 @@ header .container .show_basket .basket_items .basket_item .basket_item_info .ite
   background-color: #4b6049;
   border: none;
 }
-header .container .show_basket .basket_items .basket_item .basket_item_info .item_info h3, header .container .show_basket .basket_items .basket_item .basket_item_info .item_info p {
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info h3,
+header .container .show_basket .basket_items .basket_item .basket_item_info .item_info p {
   padding-right: 10px;
   font-size: clamp(12px, 1.6vw, 24px);
 }
