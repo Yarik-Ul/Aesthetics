@@ -82,7 +82,11 @@ function showMyBasket(event) {
   if (event.target === showBasket || event.target === continueBuy) {
     basketWindow.classList.toggle("show_basket_active");
   } else if (event.target === toOrder) {
-    showOrder.classList.toggle("to_order_active");
+    if (!basket.length) {
+      showPopUp("Ваш кошик порожній!");
+    } else {
+      showOrder.classList.toggle("to_order_active");
+    }
   }
   basketContainer.innerHTML = outProductInBasket;
   howManyProductsInBasket(quanOfProducts);
@@ -171,43 +175,21 @@ window.addEventListener("scroll", scroll);
 
 // button to up
 
-//request *****
+//validation form
 
 const url = "#";
 const orderForm = document.querySelector(".order_form");
 const orderBtn = document.querySelector(".send_order");
-orderForm.addEventListener("submit", sendOrder);
-
-async function sendOrder(event) {
-  event.preventDefault();
-  const firstname = document.getElementById("firstname").value.trim();
-  const secondname = document.getElementById("secondname").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const phone = document.getElementById("phone").value.trim();
-  //do normal validation!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-
-  if (firstname === "" || secondname === "" || email === "" || phone === "") {
-    showPopUpThanks("Будь ласка, заповніть усі поля форми.");
-  } else {
-    const myOrderForm = new FormData(orderForm);
-    let products = sessionStorage.getItem("basket");
-    myOrderForm.append("basket", products);
-
-    await fetch(url, {
-      method: "POST",
-      body: myOrderForm,
-    });
-  }
-}
+const firstname = document.getElementById("firstname");
+const lastname = document.getElementById("secondname");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const namePattern = /^(?:[а-щА-ЩЬьЮюЯяЇїІіЄєҐґ']{2,})$/;
+const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const phonePattern = /^\+380\d{9}$/;
 
 //pop-ua after request
-orderBtn.addEventListener("click", () =>
-  showPopUpThanks(
-    "Дякуємо за замовлення! Найближчим часом з вами зв'яжеться наш менеджер"
-  )
-);
-
-function showPopUpThanks(text) {
+function showPopUp(text) {
   const popUpThanks = document.createElement("div");
   popUpThanks.classList.add("pop_up_thanks");
   popUpThanks.innerText = text;
@@ -217,4 +199,55 @@ function showPopUpThanks(text) {
   }, 4000);
 }
 
-// END request *****
+function sendOrder(event) {
+  event.preventDefault();
+  if (
+    firstname.value === "" ||
+    lastname.value === "" ||
+    email.value === "" ||
+    phone.value === ""
+  ) {
+    showPopUp("Будь ласка, заповніть усі поля форми.");
+  } else {
+    firstname.value = "";
+    lastname.value = "";
+    email.value = "";
+    phone.value = "";
+    showPopUp(
+      "Дякуємо за замовлення! Найближчим часом з вами зв'яжеться наш менеджер"
+    );
+  }
+}
+orderForm.addEventListener("submit", sendOrder);
+
+//validation function
+function validateInput(input, pattern) {
+  let checkPattern = input.value.trim().match(pattern);
+  if (checkPattern) {
+    input.classList.add("not-error");
+    input.classList.remove("error");
+  } else {
+    input.classList.add("error");
+    input.classList.remove("not-error");
+  }
+}
+
+//validate first name
+firstname.addEventListener("input", () => {
+  validateInput(firstname, namePattern);
+});
+
+//validate last name
+lastname.addEventListener("input", () => {
+  validateInput(lastname, namePattern);
+});
+
+//validate email
+email.addEventListener("input", () => {
+  validateInput(email, emailPattern);
+});
+
+//validate phone
+phone.addEventListener("input", () => {
+  validateInput(phone, phonePattern);
+});

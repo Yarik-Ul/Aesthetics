@@ -50,6 +50,13 @@ header {
               font-size: 20px;
           }
 
+          .error {
+            box-shadow: 0 0 2px 2px red;
+          }
+          .not-error {
+            box-shadow: 0 0 2px 2px green;
+          }
+
           .send_order {
             display: flex;
             align-items: center;
